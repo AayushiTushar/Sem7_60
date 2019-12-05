@@ -1,0 +1,15 @@
+<div *ngFor="let prod of products;  let i = index" >
+    <!-- <div ng-if="i%2==0">
+        <div class="row">
+    </div> -->
+    <div class="card m-3" style="width: 15rem;">
+        <!-- <img src="data:image/png;base64,{{i.image}}" class="card-img-top" alt="..."> -->
+        <div class="card-body text-center">
+            <h5 class="card-title text-dark">{{prod.name}}</h5>
+            <p class="card-text text-success">{{prod.price}}</p>
+            <p class="card-text text-info">{{prod.description}}</p>
+            <button class="btn btn-primary m-1" (click)="editProduct(prod._id)">Edit</button>
+            <button class="btn btn-danger m-1" (click)="deleteProduct(prod._id)">Delete</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<form method="POST" [formGroup]="updateForm" class="m-4">
+    <div class="form-group">
+        <label for="name" class="control-label">Name</label>
+        <input type="text" formControlName="name" class="form-control" #name value="{{updateForm.name}}">
+    </div>
+    <div class="form-group">
+        <label for="price" class="control-label">Price</label>
+        <input type="number" formControlName="price" class="form-control" #price value="{{updateForm.price}}">
+    </div>
+    <div class="form-group">
+        <label for="description" class="control-label">Description</label>
+        <textarea name="description" formControlName="description" class="form-control" #description value={{updateForm.description}} cols="30" rows="10"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="catgory" class="control-label">Category</label>
+        <select name="category" formControlName="category" #category class="form-control">
+            <!-- <span ng-if="i._id == updateForm.category">
+
+            </span> -->
+                <option *ngFor="let i of categories" value="{{i._id}}">{{i.name}}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="updateProduct(name.value, price.value, description.value, category.value)">Submit</button>
+</form>

@@ -1,0 +1,25 @@
+<form [formGroup]="createForm" class="m-4" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" formControlName="name" #name id="name" name="price" placeholder="Enter Product Name">
+    </div>
+    <div class="form-group">
+        <label for="name">Price</label>
+        <input type="number" class="form-control" formControlName="price" #price id="price" name="price" placeholder="Enter Product Name">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" id="description" formControlName="description" #description cols="30" rows="10" class="form-control" placeholder="Product Description" name="description"></textarea>
+    </div>
+    <!-- <div class="form-group">
+        <label for="image">Image</label>
+        <input type="file" class="form-control" formControlName="image" #image>
+    </div>     -->
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select name="category" formControlName="category" #category class="form-control">
+            <option *ngFor="let i of categories" value="{{i._id}}">{{i.name}}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="addProduct(name.value, price.value, description.value, category.value)">Submit</button>
+</form>
